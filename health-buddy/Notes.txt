@@ -1,0 +1,22 @@
+
+CREATE TABLE goaltype (
+	id serial PRIMARY KEY,
+	name VARCHAR ( 100 ) UNIQUE NOT NULL, 
+	description VARCHAR ( 255 ) NOT NULL
+);
+
+CREATE TABLE goallog (
+  goallog_id serial PRIMARY KEY,
+  goaltype_id INT NOT NULL,
+  goallog_date TIMESTAMP,
+  executed BOOLEAN NOT NULL DEFAULT FALSE,
+  commentaire VARCHAR ( 255 ),
+  FOREIGN KEY (goaltype_id) REFERENCES goaltype(id)
+);
+
+
+
+{
+	"goalname": "Weight Loss",
+	"goaldescription": "Loose 20lbs in a year - start the year at 215lbs"
+}
